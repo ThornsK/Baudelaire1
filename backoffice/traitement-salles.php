@@ -1,6 +1,6 @@
 <?php 
 
-require_once("init.php");
+require_once("php/init.php");
 
 // if (!userAdmin()) {
 // 	header("location:profil.php");
@@ -41,4 +41,20 @@ if ($_GET) { // modification de salle
 		$msg .= "<div class='erreur'>Erreur dans la requette</div>";
 	}
 } // fin if get
+
+if($_POST) { //traitement supprimer
+
+	$resultat = $pdo -> prepare("SELECT id_salle FROM salle WHERE id_salle = :id_salle");
+
+	$resultat -> bindParam(":id_salle", $_POST["id_salle"], PDO::PARAM_INT);
+
+	$resultat -> execute();
+
+	if($resultat -> rowCount() > 0){
+		$id_salle = $_POST["id_salle"];
+		$resultat = $pdo -> exec("DELETE FROM salle WHERE id_salle = $id_salle");
+		$msg .= "salle supprimée"
+	}
+	
+}
 ?>

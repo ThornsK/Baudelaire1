@@ -1,6 +1,6 @@
 <?php 
 
-require_once("init.php");
+require_once("php/init.php");
 
 if(isset($_GET["action"]) && $_GET["action"] == "deconnexion"){
 	unset($_SESSION["membre"]);
