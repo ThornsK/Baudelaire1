@@ -33,6 +33,10 @@ $resultat = $pdo -> query("SELECT * FROM salle");
 						$meta = $resultat -> getColumnMeta($i);
 						$contenu.= '<th>' . $meta['name'] . '</th>';
 					}
+
+					$contenu.='<th>';
+					$contenu.='actions';
+					$contenu.='</th>';
 					$contenu.= '</tr>';
 
 					$salles = $resultat -> fetchAll(PDO::FETCH_ASSOC);
@@ -42,7 +46,12 @@ $resultat = $pdo -> query("SELECT * FROM salle");
 						foreach ($salles[$i] as $indice => $valeur){
 							$contenu .= '<td>' . $valeur . '</td>';
 						}
-					
+
+						$contenu.='<td>';
+						$contenu.='<a href="" title=""><img src="" alt=""/></a>';
+						$contenu.='<a href="" title=""><img src="img/edit.png" alt=""/></a>';
+						$contenu.='<a href="" title=""><img src="img/delete.png" alt=""/></a>';
+						$contenu.='</td>';
 						$contenu.= '</tr>';
 					}
 					$contenu.= '</table>';
@@ -70,22 +79,39 @@ $resultat = $pdo -> query("SELECT * FROM salle");
 
 							<label>Capacité</label><br/>
 							<select name="capacite" id="capacite">
-								<?php for ($i=0; $i<count($salles); $i++) : ?>
-								<option value="<?= $salles[$i]['capacite'] ?>"><?= $salles[$i]['capacite'] ?>
+								<?php for ($i=1; $i<=20; $i++) : ?>
+								<option value="<?= $i ?>"><?= $i ?>
 								</option>
+								<?php endfor; ?>
+								<?php for ($i=20; $i<50; $i++) : ?>
+									<?php if ($i%10==0) : ?>
+										<option value="<?= $i+10 ?>"><?= $i+10 ?></option>
+									<?php endif; ?>
+								<?php endfor; ?>
+								
+								<?php for ($i=50; $i<500; $i++) : ?>
+								<?php if ($i%50==0) : ?>
+										<option value="<?= $i+50 ?>"><?= $i+50 ?></option>
+									<?php endif; ?>
 								<?php endfor; ?>
 							</select><br/><br/>
 
 							<label>Catégorie</label><br/>
 							<select name="categorie" id="categorie">
-								<option value=""></option>
+								<option value="reunion">Réunion</option>
+								<option value="bureau">Bureau</option>
+								<option value="formation">Formation</option>
 							</select><br/><br/>
 						</div>
 
 						<div>
 							<label>Pays</label><br/>
 							<select name="pays" id="pays">
-								<option value=""></option>
+								<option value="France">France</option>
+								<option value="Angleterre">Angleterre</option>
+								<option value="Belgique">Belgique</option>
+								<option value="Espagne">Espagne</option>
+								<option value="Italie">Italie</option>
 							</select><br/><br/>
 
 							<label>Ville</label><br/>
