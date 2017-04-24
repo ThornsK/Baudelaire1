@@ -10,8 +10,8 @@
 		</header>
 
 		<main>
-			<div id="container">
-				<h1>Se connecter</h1>
+			<div class="container">
+				<h1>S'inscrire'</h1>
 
 				<form action="" method="post">
 
@@ -20,6 +20,12 @@
 
 					<label>Mot de passe</label>
 					<input type="password" name="mdp" id="mdp" placeholder="Votre mot de passe"/><br/><br/>
+
+					<label>Nom</label>
+					<input type="text" name="nom" id="nom" placeholder="Votre nom"/><br/><br/>
+
+					<label>Prénom</label>
+					<input type="text" name="prenom" id="prenom" placeholder="Votre prenom"/><br/><br/>
 
 					<input type="submit" value="Connexion"/>
 

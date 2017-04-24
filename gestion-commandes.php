@@ -10,7 +10,7 @@
 		</header>
 
 		<main>
-			<div id="container">
+			<div class="container">
 				<div id="commandes">
 					<table>
 						<tr>

@@ -1,3 +1,16 @@
+<?php
+
+require('inc/init.inc.php');
+
+
+
+// Traitement pour récupérer toutes les infos des salles
+$resultat = $pdo -> query("SELECT * FROM salle");
+
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="fr">
 	<head>
@@ -10,18 +23,36 @@
 		</header>
 
 		<main>
-			<div id="container">
+			<div class="container">
 				<div id="salles">
-					<table>
-						<tr>
-							<th></th>
-						</tr>
+					<?php
 
-						<tr>
-							<td>
-							</td>
-						</tr>
-					</table>
+					$contenu= '<table border="1">';
+					$contenu.= '<tr>';
+					for ($i=0; $i<$resultat -> columnCount(); $i++){
+						$meta = $resultat -> getColumnMeta($i);
+						$contenu.= '<th>' . $meta['name'] . '</th>';
+					}
+					$contenu.= '</tr>';
+
+					$salles = $resultat -> fetchAll(PDO::FETCH_ASSOC);
+
+					for ($i=0; $i<count($salles); $i++){
+						$contenu.= '<tr>';
+						foreach ($salles[$i] as $indice => $valeur){
+							$contenu .= '<td>' . $valeur . '</td>';
+						}
+					
+						$contenu.= '</tr>';
+					}
+					$contenu.= '</table>';
+
+
+					echo $contenu;
+
+
+					?>
+
 				</div>
 
 				<div>
@@ -39,7 +70,10 @@
 
 							<label>Capacité</label><br/>
 							<select name="capacite" id="capacite">
-								<option value=""></option>
+								<?php for ($i=0; $i<count($salles); $i++) : ?>
+								<option value="<?= $salles[$i]['capacite'] ?>"><?= $salles[$i]['capacite'] ?>
+								</option>
+								<?php endfor; ?>
 							</select><br/><br/>
 
 							<label>Catégorie</label><br/>
@@ -63,7 +97,7 @@
 							<textarea rows=5 cols=60 name="adresse" id="adresse" placeholder="Adresse de la salle"></textarea><br/><br/>
 
 							<label>Code Postal</label><br/>
-							<input type="text" name="code_postal" id="code_postal" placeholder="Code Postal de la salle"/><br/><br/>
+							<input type="text" name="cp" id="code_postal" placeholder="Code Postal de la salle"/><br/><br/>
 
 
 							<input type="submit" value="Enregistrer"/><br/><br/>

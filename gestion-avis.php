@@ -10,7 +10,7 @@
 		</header>
 
 		<main>
-			<div id="container">
+			<div class="container">
 				<div id="avis">
 					<table>
 						<tr>

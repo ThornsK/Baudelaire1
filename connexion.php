@@ -10,7 +10,7 @@
 		</header>
 
 		<main>
-			<div id="container">
+			<div class="container">
 				<h1>Se connecter</h1>
 
 				<form action="" method="post">
