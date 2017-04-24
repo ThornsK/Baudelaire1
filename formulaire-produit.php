@@ -25,7 +25,7 @@
 				</div>
 
 				<div>
-					<form action="" methode="post">
+					<form action="" method="post">
 						<div>
 							<label>Date d'arrivée</label><br/>
 							<input type="text" name="arrivee" id="arrivee" placeholder="00/00/0000 00:00"/><br/><br/>

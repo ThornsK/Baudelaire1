@@ -25,7 +25,7 @@
 				</div>
 
 				<div>
-					<form action="" methode="post" enctype="multipart/form-data">
+					<form action="" method="post" enctype="multipart/form-data">
 					<!-- Attribut enctype -> obligatoire si élément input "file" dans le formulaire -->
 						<div>
 							<label>Titre</label><br/>

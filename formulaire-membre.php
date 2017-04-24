@@ -25,13 +25,13 @@
 				</div>
 
 				<div>
-					<form action="" methode="post">
+					<form action="" method="post">
 						<div>
 							<label>Pseudo</label><br/>
 							<input type="text" name="pseudo" id="pseudo" placeholder="Pseudo"/><br/><br/>
 
 							<label>Mot de passe</label><br/>
-							<input type="text" name="mdp" id="mdp" placeholder="Mot de passe"/><br/><br/>
+							<input type="password" name="mdp" id="mdp" placeholder="Mot de passe"/><br/><br/>
 
 							<label>Nom</label><br/>
 							<input type="text" name="nom" id="nom" placeholder="Votre nom"/><br/><br/>
