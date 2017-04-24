@@ -2,9 +2,9 @@
 
 require_once("init.php");
 
-if (!userAdmin()) {
-	header("location:profil.php");
-}
+// if (!userAdmin()) {
+// 	header("location:profil.php");
+// }
 
 if ($_GET) { // modification de salle
 
