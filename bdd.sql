@@ -1,5 +1,7 @@
 CREATE DATABASE sallea;
 
+USE sallea;
+
 CREATE TABLE IF NOT EXISTS salle (
 	id_salle int(3) AUTO_INCREMENT,
 	titre varchar(200),
