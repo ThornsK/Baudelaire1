@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  127.0.0.1
--- Généré le :  Lun 24 Avril 2017 à 11:41
+-- Généré le :  Mar 25 Avril 2017 à 10:37
 -- Version du serveur :  10.1.13-MariaDB
 -- Version de PHP :  5.6.23
 
@@ -35,6 +35,16 @@ CREATE TABLE `avis` (
   `date_enregistrement` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Contenu de la table `avis`
+--
+
+INSERT INTO `avis` (`id_avis`, `id_membre`, `id_salle`, `commentaire`, `note`, `date_enregistrement`) VALUES
+(1, 8, 2, 'J''ai adoré travailler dans cette salle ! \r\n+1 pour le soin apporter à la décoration des sanitaires !!!!', 5, '2017-03-10 00:00:00'),
+(2, 12, 3, 'Je suis satisfai', 4, '2017-04-25 00:00:00'),
+(3, 12, 3, 'Je suis satisfaite du service ! \r\nUne salle conviviale, idéale pour accueillir mes collègues.', 4, '2017-04-25 00:00:00'),
+(4, 5, 4, 'Propre. Je recommande.', 5, '2017-03-16 00:00:00');
+
 -- --------------------------------------------------------
 
 --
@@ -47,6 +57,15 @@ CREATE TABLE `commande` (
   `id_produit` int(3) DEFAULT NULL,
   `date_enregistrement` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Contenu de la table `commande`
+--
+
+INSERT INTO `commande` (`id_commande`, `id_membre`, `id_produit`, `date_enregistrement`) VALUES
+(1, 12, 3, '2017-04-20 00:00:00'),
+(2, 5, 1, '2017-03-12 00:00:00'),
+(3, 6, 4, '2017-04-12 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -66,6 +85,24 @@ CREATE TABLE `membre` (
   `date_enregistrement` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Contenu de la table `membre`
+--
+
+INSERT INTO `membre` (`id_membre`, `pseudo`, `mdp`, `nom`, `prenom`, `email`, `civilite`, `statut`, `date_enregistrement`) VALUES
+(1, 'JanineDragonForce360', '123456', 'Joubert', 'Janine', 'dragonforce360@gmail.com', 'f', 0, '2017-03-25 00:00:00'),
+(2, 'Lol45', '987654', 'Suissorti', 'Jean', 'jeanssuissorti@yahoo.fr', 'm', 0, '2016-05-12 00:00:00'),
+(3, 'Le_Poulpe', 'jesuisunpoulpe', 'Poulpe', 'Le', 'lepoulpe@gmail.com', 'm', 1, '1990-02-15 00:00:00'),
+(4, 'OptimalPride', 'jesuisdev', 'Jack', 'Apple', 'applejack@gmail.com', 'm', 1, '2017-04-25 00:00:00'),
+(5, 'Sandra_04', 'musique', 'Webforce', 'Sandra', 'sandra@webforcemail.com', 'f', 1, '2017-02-06 00:00:00'),
+(6, 'Gerard_Pilier_de_Bar', 'glouglou', 'Pillier', 'Gerard', 'lapicole@gmail.com', 'm', 0, '2017-03-10 00:00:00'),
+(7, 'Elysee_2002', 'bernadettemonamour', 'Chirac', 'Jacques', 'elysse2002@gmail.com', 'm', 0, '2016-04-08 00:00:00'),
+(8, 'Pepito', 'mucho', 'Sanchez', 'José', 'josesanchez@outlook.fr', 'm', 0, '2017-01-12 00:00:00'),
+(9, 'Morticia_59', 'sacrifice666', 'Martin', 'Melanie', 'melaniem@gmail.com', 'f', 0, '2016-12-05 00:00:00'),
+(10, 'TranBer', 'gfufjt45', 'Filotel', 'Bertrand', 'tranber@yahoo.fr', 'm', 0, '2017-02-07 00:00:00'),
+(11, 'Promethean', 'metalforever', 'Orthoga', 'Nicolas', 'promethean@gmail.com', 'm', 0, '2017-01-25 00:00:00'),
+(12, 'Maman_du_18', 'ethanlealou', 'Martello', 'Françoise', 'fmartello@gmail.com', 'f', 0, '2017-04-15 00:00:00');
+
 -- --------------------------------------------------------
 
 --
@@ -80,6 +117,17 @@ CREATE TABLE `produit` (
   `prix` int(3) DEFAULT NULL,
   `etat` enum('libre','reservation') DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Contenu de la table `produit`
+--
+
+INSERT INTO `produit` (`id_produit`, `id_salle`, `date_arrivee`, `date_depart`, `prix`, `etat`) VALUES
+(1, 1, '2017-04-25 00:00:00', '2017-04-30 00:00:00', 1200, 'libre'),
+(2, 2, '2016-03-15 00:00:00', '2016-04-21 00:00:00', 800, 'reservation'),
+(3, 3, '2017-02-12 00:00:00', '2017-02-27 00:00:00', 1600, 'reservation'),
+(4, 4, '2017-03-21 00:00:00', '2017-03-29 00:00:00', 1100, 'libre'),
+(5, 5, '2017-03-24 00:00:00', '2017-04-05 00:00:00', 800, 'reservation');
 
 -- --------------------------------------------------------
 
@@ -153,22 +201,22 @@ ALTER TABLE `salle`
 -- AUTO_INCREMENT pour la table `avis`
 --
 ALTER TABLE `avis`
-  MODIFY `id_avis` int(3) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_avis` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT pour la table `commande`
 --
 ALTER TABLE `commande`
-  MODIFY `id_commande` int(3) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_commande` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT pour la table `membre`
 --
 ALTER TABLE `membre`
-  MODIFY `id_membre` int(3) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_membre` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 --
 -- AUTO_INCREMENT pour la table `produit`
 --
 ALTER TABLE `produit`
-  MODIFY `id_produit` int(3) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_produit` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT pour la table `salle`
 --
