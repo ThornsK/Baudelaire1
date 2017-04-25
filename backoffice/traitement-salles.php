@@ -33,7 +33,7 @@ if ($_GET) { // modification de salle
 	$resultat -> bindParam(":code_postal", $_GET["code_postal"], PDO::PARAM_INT);
 
 	if($resultat -> execute()){
-		header("location:gestion_membre.php");
+		$msg .= "<div class='erreur'>modification effectuee</div>"
 
 	}
 

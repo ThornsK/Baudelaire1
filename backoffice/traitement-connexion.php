@@ -1,6 +1,6 @@
 <?php 
 
-require_once("php/init.php");
+require_once("../inc/init.inc.php");
 
 if(isset($_GET["action"]) && $_GET["action"] == "deconnexion"){
 	unset($_SESSION["membre"]);
@@ -44,5 +44,5 @@ $resultat -> execute();
 
 } //fin if post
 
-
+echo $msg;
 ?>
