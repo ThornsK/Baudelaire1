@@ -1,6 +1,7 @@
 <?php 
 
-require_once("php/init.php");
+require_once("../inc/init.inc.php");
+
 
 // if (!userAdmin()) {
 // 	header("location:profil.php");

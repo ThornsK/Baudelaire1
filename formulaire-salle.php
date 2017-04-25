@@ -109,21 +109,37 @@ $resultat = $pdo -> query("SELECT * FROM salle");
 							<select name="pays" id="pays">
 								<option value="France">France</option>
 								<option value="Angleterre">Angleterre</option>
-								<option value="Belgique">Belgique</option>
 								<option value="Espagne">Espagne</option>
 								<option value="Italie">Italie</option>
 							</select><br/><br/>
 
 							<label>Ville</label><br/>
 							<select name="ville" id="ville">
-								<option value=""></option>
+								<option value="Paris">Paris</option>
+								<option value="Lyon">Lyon</option>
+								<option value="Nantes">Nantes</option>
+								<option value="Marseille">Marseille</option>
+								<option value="Grenoble">Grenoble</option>
+								<option value="Rennes">Rennes</option>
+								<option value="Lille">Lille</option>
+								<option value="Nimes">Nimes</option>
+								<option value="London">London</option>
+								<option value="Brighton">Brighton</option>
+								<option value="London">London</option>
+								<option value="Brighton">Brighton</option>
+								<option value="Barcelona">Barcelona</option>
+								<option value="Madrid">Madrid</option>
+								<option value="Santander">Santander</option>
+								<option value="Roma">Roma</option>
+								<option value="Milan">Milan</option>
+								<option value="Firenze">Firenze</option>
 							</select><br/><br/>
 
 							<label>Adresse</label><br/>
 							<textarea rows=5 cols=60 name="adresse" id="adresse" placeholder="Adresse de la salle"></textarea><br/><br/>
 
 							<label>Code Postal</label><br/>
-							<input type="text" name="cp" id="code_postal" placeholder="Code Postal de la salle"/><br/><br/>
+							<input type="text" name="code_postal" id="code_postal" placeholder="Code Postal de la salle"/><br/><br/>
 
 
 							<input type="submit" value="Enregistrer"/><br/><br/>
