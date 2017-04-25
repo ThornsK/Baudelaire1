@@ -2,6 +2,8 @@
 
 require_once("inc/init.inc.php");
 
+
+require_once("inc/head.php");
 ?>
 
 <!DOCTYPE html>
@@ -53,7 +55,7 @@ $(function(){
 
 		request.done(function( msg ) {
 			if(msg == "ça marche"){
-				window.location.href = "profile.php";
+				window.location.href = "profil.php";
 			}
 			console.log(msg);
 		});

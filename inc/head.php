@@ -2,14 +2,14 @@
 <html lang="fr">
 	<head>
 	<!-- stylesheets -->
-		<link rel="stylesheet" href="../font-awesome/css/font-awesome.min.css">
-		<link rel="stylesheet" type="text/css" href="../style.css">
+		<link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
+		<link rel="stylesheet" type="text/css" href="style.css">
 		<!-- scripts -->
 		<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-		<script type="text/javascript" src="../menu.js"></script>
+		<script type="text/javascript" src="menu.js"></script>
 
 		<meta charset="utf-8">
-		<title>Header projet Baudelaire</title>
+		<title>Salle A</title>
 	</head>
 	<body>
 
@@ -46,15 +46,15 @@
 					<li class="navigation_item"><a href="#">A Propos</a></li>
 					<li class="navigation_item"><a href="#">Catalogue</a></li>
 					<li class="navigation_item"><a href="#">Nous Contacter</a></li>
-					<li class="navigation_item"><a href="#">Connexion</a></li>
-					<li class="navigation_item"><a href="#">Inscription</a></li>
-					<li class="navigation_item"><a href="#">Profil</a></li>
+					<li class="navigation_item"><a href="connexion.php">Connexion</a></li>
+					<li class="navigation_item"><a href="inscription.php">Inscription</a></li>
+					<li class="navigation_item"><a href="profil.php">Profil</a></li>
 					<!--  pages admins -->
-					<li class="navigation_item"><a href="#">Membres</a></li>
-					<li class="navigation_item"><a href="#">Produits</a></li>
-					<li class="navigation_item"><a href="#">Salles</a></li>
-					<li class="navigation_item"><a href="#">Commandes</a></li>
-					<li class="navigation_item"><a href="#">Avis</a></li>
+					<li class="navigation_item"><a href="formulaire-membre.php">Membres</a></li>
+					<li class="navigation_item"><a href="formulaire-produit.php">Produits</a></li>
+					<li class="navigation_item"><a href="formulaire-salle.php">Salles</a></li>
+					<li class="navigation_item"><a href="gestion-commandes.php">Commandes</a></li>
+					<li class="navigation_item"><a href="gestion-avis.php">Avis</a></li>
 					
 				</ul>
 
