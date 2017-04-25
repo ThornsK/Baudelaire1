@@ -2,6 +2,7 @@
 
 require_once("../inc/init.inc.php");
 
+
 // if (!userAdmin()) {
 // 	header("location:profil.php");
 // }
