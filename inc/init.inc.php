@@ -22,4 +22,6 @@ define('RACINE_SERVEUR', $_SERVER['DOCUMENT_ROOT']);
 
 
 // Autres inclusions
-require_once('fonctions.inc.php');
+require_once('functions.inc.php');
+
+?>
