@@ -7,6 +7,7 @@ require('inc/init.inc.php');
 // Traitement pour récupérer toutes les infos des salles
 $resultat = $pdo -> query("SELECT * FROM salle");
 
+require_once("inc/head.php");
 ?>
 
 
