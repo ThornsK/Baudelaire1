@@ -7,6 +7,7 @@
 		<link rel="stylesheet" type="text/css" href="contact.css">
 		<link rel="stylesheet" type="text/css" href="profil.css">
 		<link rel="stylesheet" type="text/css" href="tableau.css">
+		<link rel="stylesheet" type="text/css" href="home.css">
 
 		<!-- scripts -->
 		<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>

@@ -1,0 +1,535 @@
+/*FICHE CSS POUR LA HOMEPAGE*/
+
+
+
+
+.toggle_menu {
+	position: fixed;
+	padding: 15px 20px 15px 15px;
+	color: #f5f5f5;
+	cursor: pointer;
+	z-index: 100000000;
+	font-size: 2.2em;
+
+}
+
+
+.fa-user-circle {
+
+	padding: 15px 20px 15px 15px;
+	
+	color: #f5f5f5;
+	cursor: pointer;
+	z-index: 100000000;
+	font-size: 2em;
+
+}
+
+
+
+.bouton_header:hover {
+
+	background-color: #f5f5f5;
+	border-radius: 20px;
+	color: #212121;
+
+}
+
+
+
+.background_red {
+	width: 100%;
+	height: 45vh;
+	background-color: #FF381D;
+}
+
+
+.background_white {
+	width: 100%;
+	height: 50%;
+	background-color: #f5f5f5;
+}
+
+
+header {
+	background-color: #FF381D;
+}
+
+
+
+
+
+.logo {
+
+	width: 300px;
+	height: 100px;
+	background-image: url('img/logo_sallea_home.png');
+	background-repeat: no-repeat;
+	margin-left: 180px;
+
+}
+
+
+
+.home_img_1 {
+
+	width: 351px;
+	height: 630px;
+	position: absolute;
+	top: 205px;
+	left: 600px;
+	bottom: 300px;
+	background-image: url('img/Baudelaire.jpg');
+	background-size: 200%;
+	background-repeat: no-repeat;
+	background-position: 30% 20%;
+	/*-moz-box-shadow: 0px 10px 30px 5px #212121;
+	-webkit-box-shadow: 0px 10px 30px 5px #212121;
+	-o-box-shadow: 0px 10px 30px 5px #212121;
+	box-shadow: 0px 10px 30px 5px #212121;*/
+}
+
+
+
+
+.home_img_2 {
+
+	width: 377px;
+	height: 191px;
+	position: fixed;
+	top: 236px;
+	left: 960px;
+	bottom: 600px;
+	background-image: url('img/Klee.jpg');
+	background-size: 110%;
+	background-repeat: no-repeat;
+	background-position: 50% 20%;
+
+
+	/*-moz-box-shadow: 0px 10px 30px 5px #212121;
+	-webkit-box-shadow: 0px 10px 30px 5px #212121;
+	-o-box-shadow: 0px 10px 30px 5px #212121;
+	box-shadow: 0px 10px 30px 5px #212121;*/
+}
+
+
+
+
+
+.home_img_3 {
+
+	width: 377px;
+	height: 263px;
+	position: fixed;
+	top: 447px;
+	left: 960px;
+	bottom: 500px;
+	background-image: url('img/Renoir.jpg');
+	background-size: 110%;
+	background-repeat: no-repeat;
+	background-position: 50% 20%;
+
+
+	/*-moz-box-shadow: 0px 10px 30px 5px #212121;
+	-webkit-box-shadow: 0px 10px 30px 5px #212121;
+	-o-box-shadow: 0px 10px 30px 5px #212121;
+	box-shadow: 0px 10px 30px 5px #212121;*/
+}
+
+
+
+
+
+
+.text_home {
+	display: flex;
+	width: 250px;
+	background-color: transparent;
+	position: absolute;
+	left: 250px;
+	flex-wrap: wrap;
+	top: 232px;
+
+}
+
+
+.text_home > h2 {
+	font-family: 'Roboto Condensed';
+	font-weight: 700;
+	color: #212121;
+	font-size: 30px;
+
+}
+
+
+
+
+.text_home > p {
+	font-family: 'Lato';
+	font-weight: 400;
+	color: #212121;
+
+	
+}
+
+
+
+
+.text_home_2 {
+	display: flex;
+	width: 250px;
+	background-color: transparent;
+	position: absolute;
+	left: 1455px;
+	flex-wrap: wrap;
+	top: 616px;
+
+}
+
+
+.text_home_2 > h2 {
+	font-family: 'Roboto Condensed';
+	font-weight: 700;
+	color: #212121;
+	font-size: 30px;
+
+}
+
+
+
+
+.text_home_2 > p {
+	font-family: 'Lato';
+	font-weight: 400;
+	color: #212121;
+
+	
+}
+
+
+
+.groupe_bouton_home {
+
+	display: flex;
+	justify-content: center;
+	width: 250px;
+	position: absolute;
+	margin-top: 100px;
+	left: 840px;
+	top: 670px;
+
+
+
+}
+
+
+
+
+.bouton_home_1 {
+	margin-right: 20px;
+	font-family: 'Roboto Condensed';
+	font-size: 14px;
+	width: 100px;
+	height: 30px;
+	color: #f5f5f5;
+	background-color: #212121;
+	transition: all 0.3s ease-in-out;
+	border-radius: 5px;
+	box-shadow: none;
+	text-transform: none;
+	border: none;
+}
+
+
+
+.bouton_home_1 a {
+	color: #f5f5f5;
+
+}
+
+
+
+.bouton_home_1:hover {
+
+	background-color: #FF381D;
+	border-radius: 20px;
+
+}
+
+
+
+
+
+.bouton_home_2 {
+	margin-right: 20px;
+	font-family: 'Roboto Condensed';
+	font-size: 14px;
+	width: 100px;
+	height: 30px;
+	color: #f5f5f5;
+	background-color: #212121;
+	transition: all 0.3s ease-in-out;
+	border-radius: 5px;
+	box-shadow: none;
+	text-transform: none;
+	border: none;
+}
+
+
+.bouton_home_2 a {
+	color: #f5f5f5;
+
+}
+
+
+
+.bouton_home_2:hover {
+
+	background-color: #FF381D;
+	border-radius: 20px;
+
+}
+
+
+.text_home_mobile {
+	width: 200px;
+	margin: auto 0;
+	display: none;
+}
+
+
+
+
+.groupe_bouton_mobile {
+	display: none;
+}
+
+
+
+
+.img_mobile {
+	display: none;
+}
+
+
+
+footer {
+	margin: 0 auto;
+	width: 100%;
+	height: 60px;
+	background-color: transparent;
+	position: fixed;
+	bottom: 0;
+}
+
+
+
+
+
+
+
+
+
+/* MEDIAS */
+
+@media screen and (max-width: 400px) {
+  
+
+
+  .logo {
+
+	width: 200px;
+	height: 60px;
+	background-image: url('img/logo_sallea_mobile_3.png');
+	background-repeat: no-repeat;
+	margin-left: 20px;
+
+}
+
+
+
+/* Les éléments en absolutes de la page desktop  disparaissent pour le mobile*/
+
+.home_img_1, .home_img_2, .home_img_3 {
+	display: none;
+}
+
+
+.text_home, .text_home_2 {
+	display: none;
+}
+
+
+
+
+.groupe_bouton_home {
+	display: none;
+}
+
+
+
+
+
+.text_home_mobile {
+	width: 200px;
+	margin: 0 auto;
+	display: initial;
+	padding: 10px;
+}
+
+
+
+
+
+.text_home_mobile > h2 {
+	font-family: 'Roboto Condensed';
+	font-weight: 700;
+	color: #212121;
+	font-size: 2em;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-wrap: wrap;
+
+}
+
+
+
+
+.text_home_mobile > p {
+	font-family: 'Lato';
+	font-weight: 400;
+	color: #212121;
+	font-size: 1em;
+	padding: 30px;
+	text-align: center;
+
+	
+}
+
+
+
+
+.groupe_bouton_mobile {
+	display: initial;
+	width: 200px;
+	margin: 0 auto;
+	padding: 30px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-wrap : wrap;
+	margin-top: 30px;
+	margin-bottom: 40px;
+}
+
+
+.bouton_home_mobile_1 {
+	display: initial;
+	margin-right: 20px;
+	font-family: 'Roboto Condensed';
+	font-size: 1em;
+	width: 150px;
+	height: 30px;
+	color: #f5f5f5;
+	background-color: #212121;
+	transition: all 0.3s ease-in-out;
+	border-radius: 5px;
+	box-shadow: none;
+	text-transform: none;
+	border: none;
+}
+
+
+.bouton_home_mobile_2 {
+	display: initial;
+	margin-right: 20px;
+	font-family: 'Roboto Condensed';
+	font-size: 1em;
+	width: 150px;
+	height: 30px;
+	color: #f5f5f5;
+	background-color: #212121;
+	transition: all 0.3s ease-in-out;
+	border-radius: 5px;
+	box-shadow: none;
+	text-transform: none;
+	border: none;
+	margin-top: 40px;
+}
+
+
+.bouton_home_mobile_1 a {
+	color: #f5f5f5;
+}
+
+
+.bouton_home_mobile_1:hover {
+
+	background-color: #FF381D;
+	border-radius: 20px;
+}
+
+
+.bouton_home_mobile_2 a {
+	color: #f5f5f5;
+}
+
+
+.bouton_home_mobile_2:hover {
+	
+	background-color: #FF381D;
+	border-radius: 20px;
+}
+
+
+.img_mobile {
+	display: initial;
+	background-image: url('img/Renoir.jpg');
+	width: 332px;
+	margin: 0 auto;
+	height: 158px;
+	position: absolute;
+	left: 12px;
+	top: 177px;
+	background-size: 100%;
+	background-repeat: no-repeat;
+	background-position: 10% 20%;
+
+}
+
+
+
+.img_mobile img {
+
+	max-width: 100%;
+
+}
+
+
+/* FOOTER MOBILE */
+
+
+
+
+footer {
+	position: initial;
+}
+
+.footer_content {
+	margin-top: 30px;
+	flex-wrap: wrap;
+	width: 50%;
+	font-size: 13px;
+}
+
+
+
+.footer_content p {
+	font-size: 1em;
+}
+
+
+
+
+} // fin du media query
