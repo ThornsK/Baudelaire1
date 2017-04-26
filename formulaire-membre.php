@@ -5,7 +5,6 @@ require_once("inc/init.inc.php");
 require_once("inc/head.php");
 ?>
 
-
 	<head>
 		<meta charset="utf8"/>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>

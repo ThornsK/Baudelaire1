@@ -13,9 +13,9 @@ if (isset($_SESSION["membre"])){
 }
 // Fin du if   . $_SESSION['membre']['id_membre'].
 
+
 require_once("inc/head.php");
 ?>
-
 
 <!-- <div class="page_content"> -->
 
