@@ -30,7 +30,7 @@ $resultat = $pdo -> query("SELECT * FROM salle");
 				<?php
 					$contenu = '<table border="1"><tr>';
 
-
+					//Affichage des noms de colonnes pour le tableau de donnees
 					for ($i=0; $i<$resultat -> columnCount(); $i++){
 						$meta = $resultat -> getColumnMeta($i);
 						$contenu.= '<th>' . $meta['name'] . '</th>';
@@ -42,17 +42,24 @@ $resultat = $pdo -> query("SELECT * FROM salle");
 					$contenu.= '</tr>';
 
 					$salles = $resultat -> fetchAll(PDO::FETCH_ASSOC);
-
+					// Affichage des donnees dans le tableau
 					for ($i=0; $i<count($salles); $i++){
 						$contenu.= '<tr>';
 						foreach ($salles[$i] as $indice => $valeur){
-							$contenu .= '<td>' . $valeur . '</td>';
+							if($indice=="photo"){
+								// Definition de la source de la photo
+								// Definition d'un id par cellule (selon le type de donnee concerne)
+								$contenu .= '<td id="'.$indice.'-'.$salles[$i]["id_salle"].'"><img style="max-width:400px;" src="photo /' . $valeur . '" alt="photo salle'. $valeur.'"/></td>';
+							}
+							else{
+								$contenu .= '<td id="'.$indice.'-'.$salles[$i]["id_salle"]. '">' . $valeur . '</td>';
+							}
 						}
 
 						$contenu.='<td>';
 						$contenu.='<a href="" title=""><img src="img/apercu-salle.png" alt="icone-loupe"/></a>';
-						$contenu.='<a href="#" data-id="'. $i . '" title="modifier-salle"><img src="img/edit.png" alt="icone-ardoise"/></a>';
-						$contenu.='<a href="backoffice/traitement-salles.php" title="supprimer-salle"><img src="img/delete.png" alt="icone-corbeille"/></a>';
+						$contenu.='<img src="img/edit.png" alt="icone-ardoise" data-id="'. $salles[$i]["id_salle"] . '" title="modifier-salle"/>';
+						$contenu.='<img src="img/delete.png" alt="icone-corbeille" id="'. $salles[$i]["id_salle"] . '" title="supprimer-salle"/>';
 						$contenu.='</td>';
 						$contenu.= '</tr>';
 					}
@@ -144,11 +151,13 @@ $resultat = $pdo -> query("SELECT * FROM salle");
 							<input type="text" name="code_postal" id="code_postal" placeholder="Code Postal de la salle"/><br/><br/>
 
 
-							<input type="submit" value="Enregistrer"/><br/><br/>
+							<input type="submit" value="Ajouter" id="validation"/><br/><br/>
 						</div>
 					</form>
 				</div>
+				<div id="erreur"></div>
 			</div>
+
 
 		</main>
 
@@ -160,28 +169,42 @@ $resultat = $pdo -> query("SELECT * FROM salle");
 	<script>
 	$(function(){
 
-		$('a[title="modifier-salle"]').click(function(e) {
-			e.preventDefault();
+		// suppression de salle
+		$('img[title="supprimer-salle"]').click(function(e) {
+			var id_salle_suppr = $(this).attr("id");
+			console.log(id_salle_suppr);
+			var suppr = $.ajax({ 	
+					url: "backoffice/traitement-salles.php",
+					method: "POST",
+					data : {id_salle : id_salle_suppr}
+			});	
+
+			suppr.done(function( msg ) {
+				window.location.href = "";
+			});
+			suppr.fail(function( jqXHR, textStatus ) {
+				  alert( "Request failed: " + textStatus );
+			});
+		});
+
+
+		// Récupération des informations de l'élément à modifier
+		$('img[title="modifier-salle"]').click(function(e) {
 
 			var salle_select = $(this).attr("data-id");
 
-			var affichage = $.ajax({ 	
+			var form = $.ajax({ 	
 					url: "backoffice/affichage-salles.php",
-					method: "GET"
+					method: "GET",
+					data : {id_salle : salle_select}
 			});	
 
-			affichage.done(function( msg ) {
-				msg = JSON.parse(msg)
+			form.done(function( msg ) {
+				msg = JSON.parse(msg) 
 
-				var salles = msg.informations;
-
-				console.log(salles);
-
-				console.log("salle select = " + salle_select);
-
-				var salle_amodif = salles[salle_select];
-
-
+				var salle_amodif = msg[0];
+				console.log(salle_amodif);
+				// Récupération des valeurs de l'élément qu'on souhaite modifier, dans les balises du formulaire
 				$("#titre").val(salle_amodif.titre);
 				$("#description").val(salle_amodif.description);
 				$("#capacite").val(salle_amodif.capacite);
@@ -190,13 +213,86 @@ $resultat = $pdo -> query("SELECT * FROM salle");
 				$("#ville").val(salle_amodif.ville);
 				$("#adresse").val(salle_amodif.adresse);
 				$("#code_postal").val(salle_amodif.cp);
+				$("#validation").val("Modifier");
+
+
+				
+				// Modifications d'un élément
+				$('input[value="Modifier"]').click(function(modif) {
+					//modif.preventDefault();
+					// Récupération des valeurs envoyées via le formulaire de mofication
+
+					var id_salle = salle_select;
+					var titre = $("#titre").val(); 
+					var description = $("#description").val();
+					var photo = $("#photo").val(); 
+					var capacite = $("#capacite").val();
+					var categorie = $("#categorie").val();
+					var pays = $("#pays").val(); 
+					var ville = $("#ville").val();
+					var adresse = $("#adresse").val(); 
+					var code_postal = $("#code_postal").val();
+					var modif = "true";
+
+					
+					var request = $.ajax({ 	
+							url: "backoffice/traitement-salles.php",
+							method: "GET",
+							data : {modif : modif, id_salle : id_salle, titre : titre, description : description, photo : photo, capacite : capacite, categorie : categorie, pays : pays, ville : ville, adresse : adresse, code_postal : code_postal}
+					});	
+					// Affichage des modifications dans le tableau de données
+					request.done(function( msg ) {
+						if(msg == "Erreur dans la requette"){
+							$('#erreur').html(msg);
+						}
+						else{
+							//$('#titre-'+id_salle).html(titre);
+
+						}
+					});
+					request.fail(function( jqXHR, textStatus ) {
+						  alert( "Request failed: " + textStatus );
+					});
+				});
+
 			});
-			affichage.fail(function( jqXHR, textStatus ) {
+			form.fail(function( jqXHR, textStatus ) {
 				  alert( "Request failed: " + textStatus );
 			});
-			
 
-		})
+		});
+
+		$('input[value="Ajouter"]').click(function(modif) {
+			var ajout = "true"
+			var titre = $("#titre").val(); 
+			var description = $("#description").val();
+			var photo = $("#photo").val(); 
+			var capacite = $("#capacite").val();
+			var categorie = $("#categorie").val();
+			var pays = $("#pays").val(); 
+			var ville = $("#ville").val();
+			var adresse = $("#adresse").val(); 
+			var code_postal = $("#code_postal").val();
+
+			var request = $.ajax({ 	
+					url: "backoffice/traitement-salles.php",
+					method: "GET",
+					data : {ajout: ajout, titre : titre, description : description, photo : photo, capacite : capacite, categorie : categorie, pays : pays, ville : ville, adresse : adresse, code_postal : code_postal}
+			});	
+			// Affichage des modifications dans le tableau de données
+			request.done(function( msg ) {
+				if(msg == "Erreur dans la requette"){
+					$('#erreur').html(msg);
+				}
+				else{
+					//$('#titre-'+id_salle).html(titre);
+
+				}
+			});
+			request.fail(function( jqXHR, textStatus ) {
+				  alert( "Request failed: " + textStatus );
+			});
+		});
 
 	})
 			
