@@ -2,8 +2,10 @@
 
 require_once("inc/init.inc.php");
 
-require_once("inc/head2.php");
+require_once("inc/head.php");
 ?>
+
+<link rel="stylesheet" type="text/css" href="home.css">
 
 <!-- <div class="page_content"> -->
 

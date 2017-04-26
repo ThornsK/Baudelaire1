@@ -26,6 +26,7 @@ else{
 		<link rel="stylesheet" type="text/css" href="style.css">
 		<link rel="stylesheet" type="text/css" href="contact.css">
 		<link rel="stylesheet" type="text/css" href="profil.css">
+		<link rel="stylesheet" type="text/css" href="apropos.css">
 		<link rel="stylesheet" type="text/css" href="tableau.css">
 
 		<!-- scripts -->
