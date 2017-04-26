@@ -2,6 +2,7 @@
 
 require_once("../inc/init.inc.php");
 
+
 // if (!userAdmin()) {
 // 	header("location:profil.php");
 // }
@@ -33,7 +34,7 @@ if ($_GET) { // modification de salle
 	$resultat -> bindParam(":code_postal", $_GET["code_postal"], PDO::PARAM_INT);
 
 	if($resultat -> execute()){
-		header("location:gestion_membre.php");
+		$msg .= "<div class='erreur'>modification effectuee</div>";
 
 	}
 
@@ -53,7 +54,7 @@ if($_POST) { //traitement supprimer
 	if($resultat -> rowCount() > 0){
 		$id_salle = $_POST["id_salle"];
 		$resultat = $pdo -> exec("DELETE FROM salle WHERE id_salle = $id_salle");
-		$msg .= "salle supprimée"
+		$msg .= "salle supprimée";
 	}
 	
 }

@@ -1,4 +1,4 @@
-<?php
+ <?php
 
 require('inc/init.inc.php');
 
@@ -6,6 +6,7 @@ require('inc/init.inc.php');
 
 // Traitement pour récupérer toutes les infos des salles
 $resultat = $pdo -> query("SELECT * FROM salle");
+
 
 ?>
 
@@ -16,6 +17,7 @@ $resultat = $pdo -> query("SELECT * FROM salle");
 	<head>
 		<meta charset="utf8"/>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	</head>
 
 	<body>
@@ -25,15 +27,15 @@ $resultat = $pdo -> query("SELECT * FROM salle");
 		<main>
 			<div class="container">
 				<div id="salles">
-					<?php
+				<?php
+					$contenu = '<table border="1"><tr>';
 
-					$contenu= '<table border="1">';
-					$contenu.= '<tr>';
+
 					for ($i=0; $i<$resultat -> columnCount(); $i++){
 						$meta = $resultat -> getColumnMeta($i);
 						$contenu.= '<th>' . $meta['name'] . '</th>';
 					}
-
+									
 					$contenu.='<th>';
 					$contenu.='actions';
 					$contenu.='</th>';
@@ -48,21 +50,21 @@ $resultat = $pdo -> query("SELECT * FROM salle");
 						}
 
 						$contenu.='<td>';
-						$contenu.='<a href="" title=""><img src="" alt=""/></a>';
-						$contenu.='<a href="" title=""><img src="img/edit.png" alt=""/></a>';
-						$contenu.='<a href="" title=""><img src="img/delete.png" alt=""/></a>';
+						$contenu.='<a href="" title=""><img src="img/apercu-salle.png" alt="icone-loupe"/></a>';
+						$contenu.='<a href="#" data-id="'. $i . '" title="modifier-salle"><img src="img/edit.png" alt="icone-ardoise"/></a>';
+						$contenu.='<a href="backoffice/traitement-salles.php" title="supprimer-salle"><img src="img/delete.png" alt="icone-corbeille"/></a>';
 						$contenu.='</td>';
 						$contenu.= '</tr>';
 					}
 					$contenu.= '</table>';
-
-
 					echo $contenu;
 
 
-					?>
+				?>
 
 				</div>
+
+
 
 				<div>
 					<form action="" method="post" enctype="multipart/form-data">
@@ -98,7 +100,7 @@ $resultat = $pdo -> query("SELECT * FROM salle");
 
 							<label>Catégorie</label><br/>
 							<select name="categorie" id="categorie">
-								<option value="reunion">Réunion</option>
+								<option value="réunion">Réunion</option>
 								<option value="bureau">Bureau</option>
 								<option value="formation">Formation</option>
 							</select><br/><br/>
@@ -147,9 +149,56 @@ $resultat = $pdo -> query("SELECT * FROM salle");
 					</form>
 				</div>
 			</div>
+
 		</main>
 
 		<footer>
 		</footer>
 	</body>
+
+
+	<script>
+	$(function(){
+
+		$('a[title="modifier-salle"]').click(function(e) {
+			e.preventDefault();
+
+			var salle_select = $(this).attr("data-id");
+
+			var affichage = $.ajax({ 	
+					url: "backoffice/affichage-salles.php",
+					method: "GET"
+			});	
+
+			affichage.done(function( msg ) {
+				msg = JSON.parse(msg)
+
+				var salles = msg.informations;
+
+				console.log(salles);
+
+				console.log("salle select = " + salle_select);
+
+				var salle_amodif = salles[salle_select];
+
+
+				$("#titre").val(salle_amodif.titre);
+				$("#description").val(salle_amodif.description);
+				$("#capacite").val(salle_amodif.capacite);
+				$("#categorie").val(salle_amodif.categorie);
+				$("#pays").val(salle_amodif.pays);
+				$("#ville").val(salle_amodif.ville);
+				$("#adresse").val(salle_amodif.adresse);
+				$("#code_postal").val(salle_amodif.cp);
+			});
+			affichage.fail(function( jqXHR, textStatus ) {
+				  alert( "Request failed: " + textStatus );
+			});
+			
+
+		})
+
+	})
+			
+	</script>
 </html>

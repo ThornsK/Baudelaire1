@@ -1,8 +1,11 @@
+
+
 <!DOCTYPE html>
 <html lang="fr">
 	<head>
 		<meta charset="utf8"/>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	</head>
 
 	<body>
@@ -30,4 +33,28 @@
 		<footer>
 		</footer>
 	</body>
+
+<script>
+$(function(){
+
+	$('input[type="submit"]').click(function(e) {
+
+		e.preventDefault(); 
+		var request = $.ajax({ 	
+			url: "backoffice/traitement-connexion.php",
+			method: "POST",
+			data : $( "form" ).serialize()
+		});	
+
+		request.done(function( msg ) {
+			console.log(msg);
+		});
+	 
+		request.fail(function( jqXHR, textStatus ) {
+		  alert( "Request failed: " + textStatus );
+		});
+	});
+});
+		
+</script>
 </html>

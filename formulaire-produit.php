@@ -1,3 +1,12 @@
+ <?php
+
+require('inc/init.inc.php');
+
+// Traitement pour récupérer toutes les infos des salles
+$resultat = $pdo -> query("SELECT * FROM produit");
+
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 	<head>
@@ -12,16 +21,34 @@
 		<main>
 			<div class="container">
 				<div id="produits">
-					<table>
-						<tr>
-							<th></th>
-						</tr>
+					<?php
 
-						<tr>
-							<td>
-							</td>
-						</tr>
-					</table>
+					$contenu= '<table border="1">';
+					$contenu.= '<tr>';
+					for ($i=0; $i<$resultat -> columnCount(); $i++){
+						$meta = $resultat -> getColumnMeta($i);
+						$contenu.= '<th>' . $meta['name'] . '</th>';
+					}
+					$contenu.= '</tr>';
+
+					$produits = $resultat -> fetchAll(PDO::FETCH_ASSOC);
+
+					for ($i=0; $i<count($produits); $i++){
+						$contenu.= '<tr>';
+						foreach ($produits[$i] as $indice => $valeur){
+							$contenu .= '<td>' . $valeur . '</td>';
+						}
+					
+						$contenu.= '</tr>';
+					}
+					$contenu.= '</table>';
+
+
+					echo $contenu;
+
+
+					?>
+
 				</div>
 
 				<div>
