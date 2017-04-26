@@ -5,6 +5,9 @@ require('inc/init.inc.php');
 // Traitement pour récupérer toutes les infos des salles
 $resultat = $pdo -> query("SELECT * FROM produit");
 
+
+require_once("inc/head.php");
+
 ?>
 
 <!DOCTYPE html>

@@ -1,0 +1,335 @@
+/*FONTS*/
+
+
+@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed:300,300i,400,400i,700,700i');
+
+@import url('https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i');
+
+
+
+
+
+* {
+	padding: 0;
+	margin: 0;
+	text-decoration: none;
+	list-style: none;
+}
+
+
+/*HEADER*/
+
+header {
+	max-width: 100%;
+	height: 100px;
+	margin: 0 auto;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	background-color: transparent;
+}
+
+
+.logo {
+
+	width: 300px;
+	height: 100px;
+	background-image: url('img/logo_sallea3.png');
+	background-repeat: no-repeat;
+	margin-left: 180px;
+
+}
+
+
+
+
+/*NAVIGATION*/
+
+
+.toggle_menu {
+	position: fixed;
+	padding: 15px 20px 15px 15px;
+	color: #FF381D;
+	cursor: pointer;
+	z-index: 100000000;
+	font-size: 2.2em;
+
+}
+
+
+
+.fa-user-circle {
+
+	padding: 15px 20px 15px 15px;
+	
+	color: #FF381D;
+	cursor: pointer;
+	z-index: 100000000;
+	font-size: 2em;
+
+}
+
+
+.user_content {
+	display: flex;
+	align-items: center;
+}
+
+
+
+
+.bouton_header {
+	margin-right: 20px;
+	font-family: 'Roboto Condensed';
+	font-size: 14px;
+	width: 100px;
+	height: 30px;
+	color: #f5f5f5;
+	background-color: #212121;
+	transition: all 0.3s ease-in-out;
+	border-radius: 5px;
+	box-shadow: none;
+	text-transform: none;
+	border: none;
+}
+
+
+
+.bouton_header:hover {
+
+	background-color: #FF381D;
+	border-radius: 20px;
+
+}
+
+
+
+
+.sidebar_menu {
+	position: fixed;
+	margin-left: 0px;
+	overflow: hidden;
+	height: 100vh;
+	max-height: 100vh;
+	background-color: rgba(33, 33, 33, 0.9);
+	opacity: 1;
+	/*margin-top: 840px;*/
+	transition: all 0.3s ease-in-out;
+}
+
+
+.fa-times {
+	right: 10px;
+	top: 10px;
+	color: #f5f5f5;
+	opacity: 0.7;
+	cursor: pointer;
+	position: absolute;
+	transition: all 0.3s ease-in-out;
+
+}
+
+
+.fa-times:hover {
+	opacity: 1;
+}
+
+
+
+.boxed_item {
+	font-family: 'Roboto Condensed';
+	font-weight: 700;
+	color: #f5f5f5;
+	padding: 0 20px;
+	display: inline-block;
+	box-sizing: border-box;
+	font-size: 35px;
+	text-align: center;
+	margin-top: 70px;
+}
+
+
+.logo_title {
+	color: #f5f5f5;
+	text-align: center;
+	font-family: 'Roboto Condensed';
+	font-weight: 400;
+	font-size: 15px;
+}
+
+
+.navigation_selection {
+	margin: 10px 0;
+	display: block;
+	width: 200px;
+	margin-left: 25px;
+	color: #f5f5f5;
+}
+
+
+.navigation_item {
+	font-family: 'Roboto Condensed';
+	font-weight: 400;
+	color: #f5f5f5;
+	padding: 20px 0;
+	box-sizing: border-box;
+	font-size: 16px;
+	border-bottom: solid 1px #f5f5f5;
+	transition: all 0.3s ease-in-out;
+	cursor: pointer;
+}
+
+.navigation_item a {
+	font-family: 'Roboto Condensed';
+	font-weight: 400;
+	color: #f5f5f5;
+	transition: all 0.4s ease-in-out;
+}
+
+
+.navigation_item a:hover {
+	font-family: 'Roboto Condensed';
+	font-weight: 400;
+	color: #FF381D;
+}
+
+
+
+
+/* pour cacher et afficher le menu sidebar*/
+
+
+
+.hide_menu {
+	margin-left: -250px;
+}
+
+
+
+.opacity_one {
+	opacity: 0;
+	transition: all 0.2s ease-in-out;
+	cursor: initial;
+}
+
+
+
+
+
+/*FOOTER*/
+
+
+footer {
+	margin: 0 auto;
+	width: 100%;
+	height: 60px;
+	background-color: transparent;
+	position: fixed;
+	bottom: 0;
+}
+
+
+.footer_content {
+	margin: 0 auto;
+	width: 100%;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+}
+
+
+
+
+footer a {
+	font-family: 'Roboto Condensed';
+	font-weight: 700;
+	color: #212121;
+	transition: all 0.3s ease-in-out;
+}
+
+footer p {
+	font-family: 'Roboto Condensed';
+	font-weight: 700;
+	color: #212121;
+	transition: all 0.3s ease-in-out;
+}
+
+
+
+footer a:hover {
+
+	color: #FF381D;
+}
+
+
+footer p:hover {
+
+	color: #FF381D;
+}
+
+
+
+
+
+
+
+
+
+
+/* MEDIAS QUERYS*/
+
+
+@media screen and (max-width: 400px) {
+  
+
+.sidebar_menu {
+	overflow-y: scroll;
+    height: 80%;
+}
+
+
+
+.hide_menu {
+	margin-left: -250px;
+}
+
+
+
+.opacity_one {
+	opacity: 0;
+	transition: all 0.2s ease-in-out;
+	cursor: initial;
+}
+
+
+
+.logo {
+
+	width: 200px;
+	height: 60px;
+	background-image: url('img/logo_sallea_mobile.png');
+	background-repeat: no-repeat;
+	margin-left: 20px;
+
+}
+
+
+
+
+
+button {
+	display: none;
+}
+
+
+} // fin du media query mobile
+
+
+
+
+
+
+
+
+
+

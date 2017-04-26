@@ -7,6 +7,7 @@ require_once("../inc/init.inc.php");
 // 	header("location:profil.php");
 // }
 
+
 if ($_GET) { 
 
 	if (isset($_GET["ajout"])) { // ajoutation de salle

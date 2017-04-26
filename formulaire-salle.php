@@ -8,6 +8,8 @@ require('inc/init.inc.php');
 $resultat = $pdo -> query("SELECT * FROM salle");
 
 
+require_once("inc/head.php");
+
 ?>
 
 

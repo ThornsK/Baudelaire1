@@ -1,4 +1,10 @@
 
+<?php 
+
+require_once("inc/init.inc.php");
+
+?>
+
 
 <!DOCTYPE html>
 <html lang="fr">
@@ -40,6 +46,9 @@ $(function(){
 	$('input[type="submit"]').click(function(e) {
 
 		e.preventDefault(); 
+
+		console.log($( "form" ).serialize());
+
 		var request = $.ajax({ 	
 			url: "backoffice/traitement-connexion.php",
 			method: "POST",
@@ -47,6 +56,10 @@ $(function(){
 		});	
 
 		request.done(function( msg ) {
+
+			if(msg == "ça marche"){
+				window.location.href = "profil.php";
+			}
 			console.log(msg);
 		});
 	 
