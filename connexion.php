@@ -1,47 +1,34 @@
 
-<?php 
+ <?php 
 
 require_once("inc/init.inc.php");
 
 ?>
 
-
-<!DOCTYPE html>
-<html lang="fr">
-	<head>
-		<meta charset="utf8"/>
-		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-	</head>
-
-	<body>
-		<header>
-		</header>
-
-		<main>
-			<div class="container">
-				<h1>Se connecter</h1>
+			<div class="container" id="dialog" title="Se connecter">
 
 				<form action="" method="post">
 
-					<label>Pseudo</label>
+					<label>Pseudo</label><br>
 					<input type="text" name="pseudo" id="pseudo" placeholder="Votre pseudo"/><br/><br/>
 
-					<label>Mot de passe</label>
+					<label>Mot de passe</label><br>
 					<input type="password" name="mdp" id="mdp" placeholder="Votre mot de passe"/><br/><br/>
 
 					<input type="submit" value="Connexion"/>
 
+					<a href="#" id="inscription">Inscription</a>
+					<div id="msg"></div>
+
 				</form>
 			</div>
-		</main>
 
-		<footer>
-		</footer>
-	</body>
-
-<script>
+<script> 
 $(function(){
+
+	$( function() {
+		$( "#dialog" ).dialog();
+	} );
 
 	$('input[type="submit"]').click(function(e) {
 
@@ -60,14 +47,22 @@ $(function(){
 			if(msg == "ça marche"){
 				window.location.href = "profil.php";
 			}
-			console.log(msg);
+			else{
+				$("#msg").html(msg);
+			}
 		});
 	 
 		request.fail(function( jqXHR, textStatus ) {
 		  alert( "Request failed: " + textStatus );
 		});
 	});
+
+	$('#inscription').click(function(e) {
+		e.preventDefault(); 
+		$("#connexion-popup").empty();
+		$("#connexion-popup").load("inscription.php");
+	});
+
 });
 		
 </script>
-</html>

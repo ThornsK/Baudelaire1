@@ -2,9 +2,8 @@
 
 require_once("../inc/init.inc.php");
 
-if(isset($_GET["action"]) && $_GET["action"] == "deconnexion"){
+if(isset($_GET["deconnexion"])){
 	unset($_SESSION["membre"]);
-	header("location:connexion.php");
 }
 
 if ($_POST) {
@@ -31,12 +30,12 @@ $resultat -> execute();
 		} // fin if $membre["mdp"] -> si mdp est bon
 
 		else{
-			$msg .= "<div class='erreur'>Erreur de mot de passe !</div>";
+			$msg .= "Erreur de mot de passe !";
 		}
 	} //fin if resulta rowcount -> si pseudo existe
 
 	else{
-		$msg .= "<div class='erreur'>Erreur de pseudo !</div>";
+		$msg .= "Erreur de pseudo !";
 	}
 
 
