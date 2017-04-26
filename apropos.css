@@ -54,3 +54,35 @@
 	font-weight: 700;
 	font-family: 'Roboto Condensed';
 }
+
+
+@media screen and (max-width: 400px) {
+
+p {
+	font-size: 0.75em;
+}
+
+
+
+.apropos_text_1 {
+    margin: 0 auto;
+    width: 400px;
+    padding: 20px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    width: 90%;
+}
+
+
+
+
+.apropos_text_2 {
+    margin: 0 auto;
+    width: 400px;
+    padding: 20px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    width: 90%;
+}
+
+}
