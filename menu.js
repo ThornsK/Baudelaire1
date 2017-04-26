@@ -20,10 +20,5 @@ $(document).ready(function(){
 	}); // fin evenement click f-times
 
 
-	
-
-
-
-
 
 }); // fin du document ready
