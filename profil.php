@@ -1,6 +1,6 @@
 <?php 
 
-require_once("inc/init.inc.php");.
+require_once("inc/init.inc.php");
 
 if (isset($_SESSION["membre"])){
 	$resultat = $pdo -> query("SELECT s.titre, p.date_arrivee, p.date_depart, p.prix, p.etat, s.photo
