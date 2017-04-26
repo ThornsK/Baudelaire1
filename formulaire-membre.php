@@ -5,8 +5,6 @@ require_once("inc/init.inc.php");
 require_once("inc/head.php");
 ?>
 
-<!DOCTYPE html>
-<html lang="fr">
 	<head>
 		<meta charset="utf8"/>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -69,7 +67,8 @@ require_once("inc/head.php");
 			</div>
 		</main>
 
-		<footer>
-		</footer>
-	</body>
-</html>
+<?php
+
+require_once("inc/footer.php");
+
+?>
