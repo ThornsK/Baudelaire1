@@ -165,7 +165,6 @@ $resultat = $pdo -> query("SELECT * FROM salle");
 		</footer>
 	</body>
 
-
 	<script>
 	$(function(){
 
@@ -297,4 +296,5 @@ $resultat = $pdo -> query("SELECT * FROM salle");
 	})
 			
 	</script>
+
 </html>
