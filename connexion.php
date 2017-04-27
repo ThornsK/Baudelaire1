@@ -5,26 +5,33 @@ require_once("inc/init.inc.php");
 
 ?>
 
-			<div class="container" id="dialog" title="Se connecter">
+			<div class="connexion" id="dialog" title="Se connecter">
+				<div id="load">
+					<form action="" method="post">
 
-				<form action="" method="post">
+						<label>Pseudo</label><br>
+						<input type="text" name="pseudo" id="pseudo" placeholder="Votre pseudo"/><br/><br/>
 
-					<label>Pseudo</label><br>
-					<input type="text" name="pseudo" id="pseudo" placeholder="Votre pseudo"/><br/><br/>
 
-					<label>Mot de passe</label><br>
-					<input type="password" name="mdp" id="mdp" placeholder="Votre mot de passe"/><br/><br/>
+						<label>Mot de passe</label><br>
+						<input type="password" name="mdp" id="mdp" placeholder="Votre mot de passe"/><br/><br/>
 
-					<input type="submit" value="Connexion"/>
 
-					<a href="#" id="inscription">Inscription</a>
-					<div id="msg"></div>
+						<input type="submit" value="Connexion"/>
 
-				</form>
+						<div id="load_inscription"><a href="#" id="inscription">Inscription</a></div>
+						
+						<div id="msg"></div>
+
+					</form>
+				</div>
 			</div>
 
 <script> 
 $(function(){
+	$( function() {
+		$( "#dialog" ).dialog();
+	} );
 
 	$( function() {
 		$( "#dialog" ).dialog();
@@ -58,9 +65,11 @@ $(function(){
 	});
 
 	$('#inscription').click(function(e) {
-		e.preventDefault(); 
-		$("#connexion-popup").empty();
-		$("#connexion-popup").load("inscription.php");
+
+		$("#dialog").attr("title", "S'inscrire");
+		e.preventDefault();
+		$("#load").load("inscription.php");
+
 	});
 
 });

@@ -2,12 +2,16 @@
 
 require_once("inc/init.inc.php");
 
+$note = "";
+$division = 0;
+$salles = $pdo -> query("SELECT * FROM salle");			
+$salles = $salles -> fetchAll(PDO::FETCH_ASSOC);
 
-	$resultat = $pdo -> query("SELECT * FROM salle");
-	$salles = $resultat -> fetchAll(PDO::FETCH_ASSOC);
+$produits = $pdo -> query("SELECT * FROM produit");
+$produits = $produits -> fetchAll(PDO::FETCH_ASSOC);
 
-
-
+$avis = $pdo -> query("SELECT * FROM avis");			
+$avis = $avis -> fetchAll(PDO::FETCH_ASSOC);
 
 require_once("inc/head.php");
 
@@ -82,15 +86,32 @@ require_once("inc/head.php");
 			<div class="boutique-produit">
 				<h3><?= $valeur["titre"]?></h3>
 				<img src="photo/<?= $valeur["photo"]?>" style="width:400px;"/>
-				<!--<p style="font-weight: bold; font-size: 20px";><?= $valeur["description"]?></p>-->
+					<?php for ($i=0; $i < count($produits); $i++) {
+			if($produits[$i]["id_salle"] == $value["id_salle"]){
+				echo '<p style="font-weight: bold; font-size: 20px";>' . $produits[$i]["prix"] . '</p>';
+			}
+		} ?>
 				<p style="height: 40px"><?= substr($valeur['description'], 0, 40) ?>...</p>
 				<!--<a href="fiche-produit.php?id=<?= $valeur['id_produit']?>" style="padding: 5px 15px; background:red; color: white; text-align: center; border: 2px solid black; border-radius:3px">Voir la fiche du produit</a>-->
-			</div>	
+			<?php 
+	for ($i=0; $i < count($avis); $i++) {
+		if($avis[$i]["id_salle"] == $value["id_salle"]){
+			$note += $avis[$i]["note"];
+			$division += 1;
+		}
+	}
+	if($division > 0) {
+		$note = $note / $division; 
+	}
+	echo $note;
+	$note = "";
+	$division = 0; 
+	?>	
+    </div>	
 		<!-- Fin vignette produit -->
 		<?php endforeach; ?>		
 	</div>
-
-
+  
 </main>
 
 
