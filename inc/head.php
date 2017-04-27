@@ -1,7 +1,27 @@
+<?php 
+
+
+
+if(userConnecte()){
+	$state = "déconnexion";
+}
+
+elseif(isset($_SESSION["membre"])){
+	$state = "connexion";
+}
+else{
+	$state = "connexion";
+}
+
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 	<head>
 	<!-- stylesheets -->
+		<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 		<link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
 		<link rel="stylesheet" type="text/css" href="style.css">
 		<link rel="stylesheet" type="text/css" href="contact.css">
@@ -11,6 +31,7 @@
 
 		<!-- scripts -->
 		<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+		<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 		<script type="text/javascript" src="menu.js"></script>
 
 		<meta charset="utf-8">
@@ -33,11 +54,13 @@
 			<div class="user_content">
 				
 				<i class="fa fa-user-circle" aria-hidden="true"></i>
-				<button class="bouton_header">INSCRIPTION</button>
+				<button class="bouton_header" id="state"><?= $state; ?></button>
 
 			</div>
 			
 		</header>
+
+		<div id="connexion-popup"></div>
 
 		<div class="sidebar_menu hide_menu">
 				<i class="fa fa-times"></i>
@@ -51,10 +74,10 @@
 					<li class="navigation_item"><a href="#">A Propos</a></li>
 					<li class="navigation_item"><a href="#">Catalogue</a></li>
 					<li class="navigation_item"><a href="#">Nous Contacter</a></li>
-					<li class="navigation_item"><a href="connexion.php">Connexion</a></li>
-					<li class="navigation_item"><a href="inscription.php">Inscription</a></li>
 					<li class="navigation_item"><a href="profil.php">Profil</a></li>
+
 					<!--  pages admins -->
+
 					<li class="navigation_item"><a href="formulaire-membre.php">Membres</a></li>
 					<li class="navigation_item"><a href="formulaire-produit.php">Produits</a></li>
 					<li class="navigation_item"><a href="formulaire-salle.php">Salles</a></li>
@@ -63,6 +86,38 @@
 					
 				</ul>
 
-		</div> <!-- fin de la side bar -->
+			</div> <!-- fin de la side bar -->
+      
+      <div class="page_content">	
 
-		<div class="page_content">	
+	<script>
+	$(function(){
+
+		if($( "#state" ).text() == "déconnexion"){
+			$("#state").click(function(e) {
+				var request = $.ajax({ 	
+					url: "backoffice/traitement-connexion.php",
+					method: "GET",
+					data : {deconnexion : "deconnexion"}
+				});	
+
+				request.done(function( msg ) {
+					window.location.href = "home.php";
+				});
+			 
+				request.fail(function( jqXHR, textStatus ) {
+				  alert( "Request failed: " + textStatus );
+				});				
+			});
+		}
+		else if($( "#state" ).text() == "connexion"){
+			$("#state").click(function(e) {
+				$("#connexion-popup").css('display','none');
+				$("#connexion-popup").load("connexion.php");
+			});
+		}
+		else{
+			console.log("fuck");
+		}
+	});
+	</script>

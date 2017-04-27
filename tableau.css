@@ -54,7 +54,7 @@ table td:first-child {
   border-left: 0;
 }
 table td {
-  padding:18px;
+  padding:10px;
   border-top: 1px solid #ffffff;
   border-bottom:1px solid #e0e0e0;
   border-left: 1px solid #e0e0e0;
@@ -62,6 +62,7 @@ table td {
   background: #fafafa;
   background: -webkit-gradient(linear, left top, left bottom, from(#fbfbfb), to(#fafafa));
   background: -moz-linear-gradient(top,  #fbfbfb,  #fafafa);
+  max-height:20px;
 }
 table tr.even td {
   background: #f6f6f6;

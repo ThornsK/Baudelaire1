@@ -1,6 +1,6 @@
 <?php 
 
-require_once("inc/init.inc.php");.
+require_once("inc/init.inc.php");
 
 if (isset($_SESSION["membre"])){
 	$resultat = $pdo -> query("SELECT s.titre, p.date_arrivee, p.date_depart, p.prix, p.etat, s.photo
@@ -84,6 +84,9 @@ require_once("inc/head.php");
 
 				echo $commande;
 			} // Fin du if
+			else{
+
+			}
 
 			?>
 		</div>

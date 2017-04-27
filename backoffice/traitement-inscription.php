@@ -1,10 +1,6 @@
 <?php 
 
-require_once("init.php");
-
-if(userConnecte()){
-	header("location:profil.php");
-}
+require_once("../inc/init.inc.php");
 
 if($_POST){
 
@@ -14,16 +10,20 @@ if($_POST){
 
 		if($verif_caracteres){
 			if(strlen($_POST["pseudo"]) < 3 || strlen($_POST["pseudo"]) > 20){
-				$msg .= "<div class='erreur'>Veuillez renseigner un pseudo compris entre 3 et 20 caractères.</div>";
+				$msg .= "Veuillez renseigner un pseudo compris entre 3 et 20 caractères.";
 			}
 		}
 		else{
-			$msg .= "<div class='erreur'>Pseudo : Caracteres autorisés : A-Z, 0-9 et '-', '.' et '_'.</div>";
+			$msg .= "Pseudo : Caracteres autorisés : A-Z, 0-9 et '-', '.' et '_'.";
+		}
+
+		if(strlen($_POST["mdp"]) < 3){
+			$msg .= "Veuillez renseigner un mot de passe d'au moins 3 characteres";
 		}
 	}
 
 	else{
-		$msg .= "<div class='erreur'>Veuillez renseigner un pseudo !</div>";
+		$msg .= "Veuillez renseigner un pseudo !";
 	}
 
 	if(empty($msg)){
@@ -33,7 +33,7 @@ if($_POST){
 		$resultat -> execute();
 
 		if($resultat -> rowcount() > 0){
-			$msg .= "<div class='erreur'>Ce pseudo <b>" . $_POST["pseudo"] . "<b/> n'est pas disponible. Veuillez choisir un autre pseudo.</div>";
+			$msg .= "Ce pseudo <b>" . $_POST["pseudo"] . "<b/> n'est pas disponible. Veuillez choisir un autre pseudo.";
 
 		}
 
@@ -54,11 +54,16 @@ if($_POST){
 			$resultat -> bindParam(":civilite", $_POST["civilite"], PDO::PARAM_STR);
 
 			if($resultat -> execute()){
-				header("location:connexion.php");
+				$msg .= "ça marche";
+			}
+			else {
+				$msg .= "Erreur de saisie";
 			}
 		} //fin du traitement ajout de membre
 
 	} //fin empty msg
 
 } //fin if post
+
+echo $msg;
 ?>
