@@ -6,14 +6,19 @@ if(userConnecte()){
 	$state = "déconnexion";
 }
 
-elseif(isset($_SESSION["membre"])){
-	$state = "connexion";
-}
 else{
 	$state = "connexion";
 }
 
+$statut = "";
 
+if (userConnecte()) {
+	
+}
+
+if(!useradmin()){
+	$statut = "style ='display:none'";
+}
 
 ?>
 
@@ -71,18 +76,18 @@ else{
 
 				<ul class="navigation_selection">
 					<!-- pages utilisateurs -->
-					<li class="navigation_item"><a href="#">A Propos</a></li>
-					<li class="navigation_item"><a href="#">Catalogue</a></li>
-					<li class="navigation_item"><a href="#">Nous Contacter</a></li>
+					<li class="navigation_item"><a href="apropos.php">A Propos</a></li>
+					<li class="navigation_item"><a href="catalogue.php">Catalogue</a></li>
+					<li class="navigation_item"><a href="contact.php">Nous Contacter</a></li>
 					<li class="navigation_item"><a href="profil.php">Profil</a></li>
 
 					<!--  pages admins -->
 
-					<li class="navigation_item"><a href="formulaire-membre.php">Membres</a></li>
-					<li class="navigation_item"><a href="formulaire-produit.php">Produits</a></li>
-					<li class="navigation_item"><a href="formulaire-salle.php">Salles</a></li>
-					<li class="navigation_item"><a href="gestion-commandes.php">Commandes</a></li>
-					<li class="navigation_item"><a href="gestion-avis.php">Avis</a></li>
+					<li class="navigation_item" <?= $statut ?>><a href="formulaire-membre.php" <?= $statut ?>>Membres</a></li>
+					<li class="navigation_item" <?= $statut ?>><a href="formulaire-produit.php">Produits</a></li>
+					<li class="navigation_item" <?= $statut ?>><a href="formulaire-salle.php">Salles</a></li>
+					<li class="navigation_item" <?= $statut ?>><a href="gestion-commandes.php">Commandes</a></li>
+					<li class="navigation_item" <?= $statut ?>><a href="gestion-avis.php">Avis</a></li>
 					
 				</ul>
 

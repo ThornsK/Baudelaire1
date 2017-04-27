@@ -42,9 +42,6 @@ require_once("inc/head.php");
 
 
 <div class="groupe_bouton_home">
-	
-<button class= "bouton_home_1"><a href="#">Notre catalogue</a></button>
-<button class= "bouton_home_1"><a href="#">Inscription</a></button>
 
 </div>
 

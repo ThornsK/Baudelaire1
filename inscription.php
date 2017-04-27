@@ -4,10 +4,10 @@ require_once("inc/init.inc.php");
 
 ?>
 
-			<div class="container" id="dialog" title="S'inscrire">
 
 				<form action="" method="post">
 
+				<h2>Formulaire Inscription</h2>
 					<label>Pseudo</label><br>
 					<input type="text" name="pseudo" id="pseudo" placeholder="Votre pseudo"/><br/><br/>
 
@@ -24,7 +24,9 @@ require_once("inc/init.inc.php");
 					<input type="text" name="email" id="email" placeholder="Votre Email"/><br/><br/>
 
 					<label>Civilité</label><br>
+					<div>Homme</div>
 					<input type="radio" name="civilite" id="homme" value="Homme"/>
+					<div>Femme</div>
 					<input type="radio" name="civilite" id="femme" value="femme"/>
 					<br/><br/>
 
@@ -32,14 +34,8 @@ require_once("inc/init.inc.php");
 					<div id="msg"></div>
 
 				</form>
-			</div>
-
 <script>
 $(function(){
-
-	$( function() {
-		$( "#dialog" ).dialog();
-	} );
 
 	$('input[type="submit"]').click(function(e) {
 
@@ -52,8 +48,8 @@ $(function(){
 
 		request.done(function( msg ) {
 			if(msg == "ça marche"){
-				$("#connexion-popup").empty();
-				$("#connexion-popup").load("Connexion.php");
+				$("#dialog").attr("title", "Se connecter");
+				$("#load").load("Connexion.php");
 			}
 			else{
 				$("#msg").html(msg);
