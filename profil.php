@@ -2,6 +2,7 @@
 
 require_once("inc/init.inc.php");
 
+
 if(!userConnecte()){
 	header("location:home.php");
 }
@@ -88,6 +89,9 @@ require_once("inc/head.php");
 
 				echo $commande;
 			} // Fin du if
+			else{
+
+			}
 
 			?>
 		</div>

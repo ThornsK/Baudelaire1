@@ -4,7 +4,6 @@ require_once("inc/init.inc.php");
 
 ?>
 
-
 				<form action="" method="post">
 
 				<h2>Formulaire Inscription</h2>
@@ -24,9 +23,11 @@ require_once("inc/init.inc.php");
 					<input type="text" name="email" id="email" placeholder="Votre Email"/><br/><br/>
 
 					<label>Civilité</label><br>
+
 					<div>Homme</div>
 					<input type="radio" name="civilite" id="homme" value="Homme"/>
 					<div>Femme</div>
+
 					<input type="radio" name="civilite" id="femme" value="femme"/>
 					<br/><br/>
 
@@ -34,6 +35,7 @@ require_once("inc/init.inc.php");
 					<div id="msg"></div>
 
 				</form>
+
 <script>
 $(function(){
 
@@ -59,7 +61,6 @@ $(function(){
 		request.fail(function( jqXHR, textStatus ) {
 		  alert( "Request failed: " + textStatus );
 		});
-
 	});
 });
 </script>

@@ -10,11 +10,8 @@ else{
 	$state = "connexion";
 }
 
-$statut = "";
 
-if (userConnecte()) {
-	
-}
+$statut = "";
 
 if(!useradmin()){
 	$statut = "style ='display:none'";
@@ -76,6 +73,7 @@ if(!useradmin()){
 
 				<ul class="navigation_selection">
 					<!-- pages utilisateurs -->
+
 					<li class="navigation_item"><a href="apropos.php">A Propos</a></li>
 					<li class="navigation_item"><a href="catalogue.php">Catalogue</a></li>
 					<li class="navigation_item"><a href="contact.php">Nous Contacter</a></li>
