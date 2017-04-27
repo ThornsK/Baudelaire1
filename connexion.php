@@ -1,33 +1,77 @@
-<!DOCTYPE html>
-<html lang="fr">
-	<head>
-		<meta charset="utf8"/>
-		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-	</head>
 
-	<body>
-		<header>
-		</header>
+ <?php 
 
-		<main>
-			<div class="container">
-				<h1>Se connecter</h1>
+require_once("inc/init.inc.php");
 
-				<form action="" method="post">
+?>
 
-					<label>Pseudo</label>
-					<input type="text" name="pseudo" id="pseudo" placeholder="Votre pseudo"/><br/><br/>
+			<div class="connexion" id="dialog" title="Se connecter">
+				<div id="load">
+					<form action="" method="post">
 
-					<label>Mot de passe</label>
-					<input type="password" name="mdp" id="mdp" placeholder="Votre mot de passe"/><br/><br/>
+						<label>Pseudo</label><br>
+						<input type="text" name="pseudo" id="pseudo" placeholder="Votre pseudo"/><br/><br/>
 
-					<input type="submit" value="Connexion"/>
 
-				</form>
+						<label>Mot de passe</label><br>
+						<input type="password" name="mdp" id="mdp" placeholder="Votre mot de passe"/><br/><br/>
+
+
+						<input type="submit" value="Connexion"/>
+
+						<div id="load_inscription"><a href="#" id="inscription">Inscription</a></div>
+						
+						<div id="msg"></div>
+
+					</form>
+				</div>
 			</div>
-		</main>
 
-		<footer>
-		</footer>
-	</body>
-</html>
+<script> 
+$(function(){
+	$( function() {
+		$( "#dialog" ).dialog();
+	} );
+
+	$( function() {
+		$( "#dialog" ).dialog();
+	} );
+
+	$('input[type="submit"]').click(function(e) {
+
+		e.preventDefault(); 
+
+		console.log($( "form" ).serialize());
+
+		var request = $.ajax({ 	
+			url: "backoffice/traitement-connexion.php",
+			method: "POST",
+			data : $( "form" ).serialize()
+		});	
+
+		request.done(function( msg ) {
+
+			if(msg == "ça marche"){
+				window.location.href = "profil.php";
+			}
+			else{
+				$("#msg").html(msg);
+			}
+		});
+	 
+		request.fail(function( jqXHR, textStatus ) {
+		  alert( "Request failed: " + textStatus );
+		});
+	});
+
+	$('#inscription').click(function(e) {
+
+		$("#dialog").attr("title", "S'inscrire");
+		e.preventDefault();
+		$("#load").load("inscription.php");
+
+	});
+
+});
+		
+</script>

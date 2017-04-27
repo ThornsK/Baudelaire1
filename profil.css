@@ -1,0 +1,75 @@
+/*FICHE DE STYLE POUR LA PAGE PROFIL*/
+
+h1 {
+	font-family: 'Roboto Condensed';
+	font-weight: 700;
+	font-size: 2em;
+	text-align: center;
+	margin-top: 30px;
+}
+
+
+
+.contenu_profil {
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-wrap: wrap;
+	max-width: 90%;
+	margin: 0 auto;
+
+
+}
+
+
+
+
+.contenu_profil img {
+
+	max-width: 300px;
+	margin: 60px;
+
+	
+}
+
+
+
+.user_infos h2 {
+	font-family: 'Roboto Condensed';
+	font-weight: 700;
+	font-size: 2em;
+	border-bottom: 1px solid #FF381D;
+}
+
+
+.user_infos p {
+	font-family: 'Roboto Condensed';
+	font-weight: 400;
+	font-size: 1.2em;
+	margin-bottom: 10px;
+}
+
+
+#historique h2 {
+
+	font-family: 'Roboto Condensed';
+	font-weight: 700;
+	font-size: 2em;
+
+}
+
+
+#historique {
+	width: 100%;
+	margin: 0 auto;
+	text-align: center;
+}
+
+
+
+
+
+footer {
+	position: initial;
+	margin-top: 50px;

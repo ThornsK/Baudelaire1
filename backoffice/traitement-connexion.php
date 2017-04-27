@@ -1,14 +1,9 @@
 <?php 
 
-require_once("php/init.php");
+require_once("../inc/init.inc.php");
 
-if(isset($_GET["action"]) && $_GET["action"] == "deconnexion"){
+if(isset($_GET["deconnexion"])){
 	unset($_SESSION["membre"]);
-	header("location:connexion.php");
-}
-
-if(userConnecte()){
-	header("location:profil.php");
 }
 
 if ($_POST) {
@@ -21,28 +16,30 @@ $resultat -> execute();
 
 	if($resultat -> rowCount() != 0){
 
-		$mdp = md5($_POST["mdp"]);
+		// $mdp = md5($_POST["mdp"]);
+
+		$mdp = $_POST["mdp"];
 
 		$membre = $resultat -> fetch(PDO::FETCH_ASSOC);
 
 		if($membre["mdp"] == $mdp){
 			foreach ($membre as $key => $value) {
 				$_SESSION["membre"][$key] = $value;
-				header("location:profil.php");
 			}
+			$msg .= "ça marche";
 		} // fin if $membre["mdp"] -> si mdp est bon
 
 		else{
-			$msg .= "<div class='erreur'>Erreur de mot de passe !</div>";
+			$msg .= "Erreur de mot de passe !";
 		}
 	} //fin if resulta rowcount -> si pseudo existe
 
 	else{
-		$msg .= "<div class='erreur'>Erreur de pseudo !</div>";
+		$msg .= "Erreur de pseudo !";
 	}
 
 
 } //fin if post
 
-
+echo $msg;
 ?>
